@@ -15,7 +15,9 @@ class View {
 
   public function output()
   {
-    $data = "<p>".$this->model->str."</p>";
+    $motto = "<div>".$this->model->motto."</div>";
+    $personal_intro = "<div>".$this->model->personal_intro."</div>";
+    $publications = "<div>".$this->model->publications."</div>";
     include_once($this->model->template);
   }
 }

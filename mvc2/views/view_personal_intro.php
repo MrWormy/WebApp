@@ -15,7 +15,7 @@ class View {
 
   public function output()
   {
-    $data = "<p>".$this->model->str."</p>";
+    $personal_intro = "<p>".$this->model->personal_intro."</p>";
     include_once($this->model->template);
   }
 }

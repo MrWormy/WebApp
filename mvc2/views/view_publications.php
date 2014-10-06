@@ -15,7 +15,7 @@ class View {
 
   public function output()
   {
-    $data = "<p>".$this->model->str."</p>";
+    $publications = "<p>".$this->model->publications."</p>";
     include_once($this->model->template);
   }
 }
