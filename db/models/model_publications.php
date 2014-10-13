@@ -1,17 +1,24 @@
 <?php
 /**
  * @author MrWormy
+ * @example MVC with db
  */
 
+include_once("db/simple_db_mysql_manager.php");
+
 class Model {
-  public $motto; //slogan
-  public $personal_intro;
   public $publication_list;
 
   public function __construct()
   {
-    $this->template = "templates/template_publications.php";
-    $this->publications = "<ul><li>pub 1</li><li>pub 2</li></ul>";
+    $dbManager = new DBManager();
+    //Step 1
+    $dbManager->openConnection();
+    //Step 2, 3
+    $query = "SELECT * FROM `publications`;";
+    $this->publication_list = $dbManager->executeQuery($query);
+    //Step 4
+    $dbManager->closeConnection();
   }
 }
 

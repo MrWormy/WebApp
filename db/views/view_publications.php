@@ -15,8 +15,12 @@ class View {
 
   public function output()
   {
-    $publications = "<p>".$this->model->publications."</p>";
-    include_once($this->model->template);
+    $publications = "";
+    foreach ($this->model->publication_list as $value) {
+      $publications .= "<li>".$value["authors"]." ".$value["title"]." ".$value["conference"]."</li>";
+    }
+    $publications = "<ul>".$publications."</ul>";
+    include_once("templates/template_publications.php");
   }
 }
 

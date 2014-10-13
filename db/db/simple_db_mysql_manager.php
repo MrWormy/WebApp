@@ -4,7 +4,7 @@
  * @description Simple DB Manage
  */
 
-include_once("../conf/conf.inc.php");
+include_once("conf/config.inc.php");
 
 /**
 * manage connection
@@ -41,15 +41,16 @@ class DBManager
   public function executeQuery($query)
   {
     if(!empty($this->db_link)){
+      $this->db_link->set_charset("utf-8");
       $result = mysqli_query($this->db_link, $query);
     }
 
     $rows = array();
-    while ($row = $result->fetch_array(MYSQLT_ASSOC)) {
+    while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
       $rows[] = $row;
     }
 
-    return rows;
+    return $rows;
   }
 }
 ?>
