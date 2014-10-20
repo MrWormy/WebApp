@@ -40,8 +40,10 @@ class DBManager
 
   public function executeQuery($query)
   {
+    $result;
+
+    mysqli_set_charset($this->db_link, "utf8");
     if(!empty($this->db_link)){
-      $this->db_link->set_charset("utf-8");
       $result = mysqli_query($this->db_link, $query);
     }
 
