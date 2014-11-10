@@ -9,7 +9,7 @@ include_once("db/DAO_factory.php");
 class Model {
   private $DAOFactory = null;
 
-  public function __construct()
+  function __construct()
   {
     $this->DAOFactory = new DAO_factory();
     $this->DAOFactory->initDBResources();

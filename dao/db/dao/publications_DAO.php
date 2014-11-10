@@ -18,8 +18,8 @@ class PublicationsDAO extends BaseDAO
   public function getPublications()
   {
     $db = $this->getDBManager();
-
     $stmt = $db->prepareQuery("SELECT * FROM `publications` ;");
+
     $db->executeQuery($stmt);
     $result = $db->fetchQuery($stmt);
 
